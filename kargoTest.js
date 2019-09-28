@@ -4,11 +4,10 @@ import axios from 'axios';
 fixture `First Time`
     .page `dev_link`
     
-
 test.before( async t => {
-    prescript();
+    deleteRecord();
     })
-    ('Register', async t => {
+    ('Register Shipper', async t => {
     
     const top = Selector('[src=\"/assets/kargo-logo/shipper.svg\"]');
     await t
@@ -34,9 +33,7 @@ test.before( async t => {
     
 });
 
-//"Nomor telepon ini sudah digunakan untuk akun lain."
-function prescript() {
-    // const axios = require('axios');
+function deleteRecord() {
     axios.post('link', {
             "phone_numbers" : ["phone_number"],
              "role" : "shipper" 
